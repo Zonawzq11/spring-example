@@ -1,0 +1,14 @@
+.project
+.classes
+.settings
+.classpath
+target
+.idea
+*.iml
+catalina.base*
+logs
+.jar
+basename.exe.stackdump
+sed.exe.stackdump
+uname.exe.stackdump
+
