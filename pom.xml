@@ -9,14 +9,409 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>service</module>
-        <module>springapi</module>
+        <module>spring-service</module>
         <module>spring-domain</module>
         <module>spring-dao</module>
         <module>spring-model</module>
         <module>spring-service-impl</module>
         <module>spring-api</module>
+        <module>spring-cms</module>
     </modules>
+    <!-- 集中定义依赖版本号 -->
+    <properties>
+        <junit.version>4.12</junit.version>
+        <spring.version>4.1.3.RELEASE</spring.version>
+        <mybatis.version>3.2.7</mybatis.version>
+        <mybatis.spring.version>1.2.2</mybatis.spring.version>
+        <slf4j.version>1.6.4</slf4j.version>
+        <jackson.version>2.4.2</jackson.version>
+        <oracle.version>11.1.0.7.0</oracle.version>
+        <mysql.version>5.1.32</mysql.version>
+        <druid.version>1.0.11</druid.version>
+        <httpclient.version>4.3.5</httpclient.version>
+        <poi.version>3.9</poi.version>
+        <poi-ooxml.version>3.8</poi-ooxml.version>
+        <poi-ooxml-schemas.version>3.8</poi-ooxml-schemas.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <xmlbeans.version>2.3.0</xmlbeans.version>
+        <shiro.version>1.2.3</shiro.version>
+        <activiti.version>5.15.1</activiti.version>
+        <jstl.version>1.2</jstl.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <jsp-api.version>2.0</jsp-api.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+        <commons-io.version>1.3.2</commons-io.version>
+        <commons-net.version>3.3</commons-net.version>
+        <jsqlparser.version>0.9.1</jsqlparser.version>
+        <commons-fileupload.version>1.3.1</commons-fileupload.version>
+        <jedis.version>2.7.2</jedis.version>
+        <solrj.version>4.10.3</solrj.version>
+        <mongodb.version>2.12.1</mongodb.version>
+        <spring.data.commons>1.5.1.RELEASE</spring.data.commons>
+        <spring.data.mongodb>1.4.2.RELEASE</spring.data.mongodb>
+        <itextpdf.version>5.5.10</itextpdf.version>
+        <itextpdf-asian.version>5.2.0</itextpdf-asian.version>
+        <javax.mail.version>1.4.7</javax.mail.version>
+        <activation.version>1.1</activation.version>
+        <common.httpclient.version>3.1</common.httpclient.version>
+        <org.json.verison>20131018</org.json.verison>
+        <base64.verison>2.3.8</base64.verison>
+        <ant.version>1.6.5</ant.version>
+        <parsePDF.version>1.0.5</parsePDF.version>
+        <icsdk.version>1.3</icsdk.version>
+        <jacksonmapperasl.version>1.9.12</jacksonmapperasl.version>
+        <httpasyncclient.version>4.0.1</httpasyncclient.version>
+        <jacksoncoreasl.version>1.9.12</jacksoncoreasl.version>
+        <alipay.version>1.0.0</alipay.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- 邮件 -->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${javax.mail.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dbgo.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>{activation.version}</version>
+            </dependency>
+            <!-- Apache工具组件 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
+            <!-- Jackson Json处理工具包 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <!-- 单元测试 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>3.2.0.RELEASE</version>
+            </dependency>
+            <!-- excel操作组件 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi-ooxml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi-ooxml-schemas.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>${xmlbeans.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+            <!-- 日志处理 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- Mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>${spring.data.commons}</version>
+            </dependency>
+
+            <!-- Mongodb -->
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongo-java-driver</artifactId>
+                <version>${mongodb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${spring.data.mongodb}</version>
+            </dependency>
+
+            <!-- MySql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- 连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- shiro -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <!-- activiti -->
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-engine</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-spring</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
+            <!-- JSP相关 -->
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- 文件上传组件 -->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
+            <!-- Redis客户端 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <!-- solr客户端 -->
+            <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-solrj</artifactId>
+                <version>${solrj.version}</version>
+            </dependency>
+            <!-- 生成PDF用 -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>itextpdf</artifactId>
+                <version>${itextpdf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>itext-asian</artifactId>
+                <version>${itextpdf-asian.version}</version>
+            </dependency>
+
+            <!-- 网络请求 -->
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>${common.httpclient.version}</version>
+            </dependency>
+            <!-- json 字符串处理 -->
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${org.json.verison}</version>
+            </dependency>
+            <!-- base 64 图片转换 -->
+            <dependency>
+                <groupId>net.iharder</groupId>
+                <artifactId>base64</artifactId>
+                <version>${base64.verison}</version>
+            </dependency>
+            <dependency>
+                <groupId>ant</groupId>
+                <artifactId>ant</artifactId>
+                <version>${ant.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>parsePDF</groupId>
+                <artifactId>parsePDF</artifactId>
+                <version>${parsePDF.version}</version>
+            </dependency>
+            <!-- 发票查验相关jar -->
+            <dependency>
+                <groupId>daben.icsdk</groupId>
+                <artifactId>icsdk</artifactId>
+                <version>${icsdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jacksoncoreasl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jacksonmapperasl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpasyncclient</artifactId>
+                <version>${httpasyncclient.version}</version>
+            </dependency>
+            <!-- 支付宝 SDK -->
+            <dependency>
+                <groupId>daben.alipay</groupId>
+                <artifactId>alipay-sdk-java-ALL20170803163858</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>daben.alipay</groupId>
+                <artifactId>alipay-sdk-java-ALL20170803163858-source</artifactId>
+                <version>${alipay.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>maven-central</id>
+            <name>maven-central</name>
+            <url>http://192.168.90.241:9000/repository/maven-central/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>releases</id>
+            <name>maven-releases</name>
+            <url>http://192.168.90.241:9000/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>maven-snapshots</name>
+            <url>http://192.168.90.241:9000/repository/maven-snapshots/</url>
+        </repository>
+
+    </repositories>
 
 
 </project>
